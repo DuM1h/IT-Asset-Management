@@ -1,0 +1,30 @@
+﻿version: '3.8'
+
+services:
+  db:
+    image: postgres:latest
+    container_name: asset-postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password123!
+      POSTGRES_DB: ITAssetDb
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: asset-api
+    depends_on:
+      - db
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Host=db;Port=5432;Database=ITAssetDb;Username=postgres;Password=password123!
+    ports:
+      - "8080:8080"
+
+volumes:
+  pgdata:
