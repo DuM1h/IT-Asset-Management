@@ -6,11 +6,11 @@ namespace IT_Asset_Management.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class AssetController : ControllerBase
+    public class EmployeeController : ControllerBase
     {
         private readonly IEmployeeService _employeeService;
 
-        public AssetController(IEmployeeService employeeService)
+        public EmployeeController(IEmployeeService employeeService)
         {
             _employeeService = employeeService;
         }

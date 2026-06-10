@@ -9,7 +9,7 @@ namespace IT_Asset_Management.Entities
         public string SerialNumber { get; set; } = string.Empty;
         [DisplayFormat(NullDisplayText = "Other")]
         public EquipmentType Type { get; set; }
-        public Guid? EmployeeID { get; set; }
+        public Guid? EmployeeId { get; set; }
         public Employee? Employee { get; set; }
     }
 
@@ -18,6 +18,7 @@ namespace IT_Asset_Management.Entities
         Laptop,
         Desktop,
         Monitor,
-        Phone
+        Phone,
+        Other
     }
 }
